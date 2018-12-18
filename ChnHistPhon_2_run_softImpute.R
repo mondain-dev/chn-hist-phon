@@ -12,10 +12,10 @@ X_SVD <- softImpute(Xc, 200, type='svd', trace.it=TRUE, maxit = 200)
 
 for (i in seq(5))
 {
-  loading_feature = X_SVD$v[order(abs(X_SVD$v[,i]), decreasing = T)]
+  loading_feature = X_SVD$v[,i][order(abs(X_SVD$v[,i]), decreasing = T)]
   names(loading_feature)  = names(X)[order(abs(X_SVD$v[,i]), decreasing = T)]
 
-  loading_characters = X_SVD$u[order(abs(X_SVD$u[,i]), decreasing = T)]
+  loading_characters = X_SVD$u[,i][order(abs(X_SVD$u[,i]), decreasing = T)]
   names(loading_characters)  = characters$character[order(abs(X_SVD$u[,i]), decreasing = T)]
 
   print(loading_feature[1:10])
