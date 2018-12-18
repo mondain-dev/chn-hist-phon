@@ -15,9 +15,9 @@ for (i in seq(5))
   loading_feature = X_SVD$v[,i][order(abs(X_SVD$v[,i]), decreasing = T)]
   names(loading_feature)  = names(X)[order(abs(X_SVD$v[,i]), decreasing = T)]
 
-  loading_characters = X_SVD$u[,i][order(abs(X_SVD$u[,i]), decreasing = T)]
-  names(loading_characters)  = characters$character[order(abs(X_SVD$u[,i]), decreasing = T)]
+  score_characters = X_SVD$u[,i][order(abs(X_SVD$u[,i]), decreasing = T)]
+  names(score_characters)  = characters$character[order(abs(X_SVD$u[,i]), decreasing = T)]
 
   print(loading_feature[1:10])
-  print(loading_characters[1:100])
+  print(score_characters[1:100])
 }
