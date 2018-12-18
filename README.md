@@ -81,7 +81,7 @@ with phonetic features:
 | pinyin_onset.ZERO | -0.1955354 |
 | ... | ... |
 
-The 10th largest singular value appears to relate to the consonants of characters:
+The 10th largest singular value appears to relate to the consonants:
 
 | 止 | 旨 | 紙 | 芷 | 値 | 姉 | 䤠 | 高 | 指| 扺 | 齒 | 豕| 膏 | 肝 | 官 | 棺 | 痔 | 拭 | ... |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
