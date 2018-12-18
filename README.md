@@ -1,6 +1,6 @@
 # ChnHistPhon - Chinese Historical Phonology
 
-Experiments in Chinese Historical Phonology using based on matrix decomposition and factorization.
+Experiments in Chinese Historical Phonology using matrix decomposition and factorization methods.
 
 ## Prerequisites
 We use python for to prepare our data. The following packages are required:
