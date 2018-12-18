@@ -27,7 +27,7 @@ We used `softImpute` to perform low-rank SVD on sparse data matrix from `ChnChar
 ## Results
 Here we show some results of SVD on the `ChnCharData.csv`. 
 
-The first few components corresponding to the largest singular values appear to primarily explaining the tone features. Characters with highest scores (absolute value) on the component corresponding to the largest singular value:
+The first few components corresponding to the largest singular values appear to explain, primarily, the tone features. Characters with highest scores (absolute value) on the component corresponding to the largest singular value:
 
 | 伊 | 夜 | 儀 | 枷 | 鵝 | 娥 | ... |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
