@@ -8,6 +8,7 @@ We use python for to prepare our data. The following packages are required:
  - numpy
  - [cjklib](https://pypi.org/project/cjklib/)
  - [vPhon: a Vietnamese phonetizer](https://github.com/kirbyj/vPhon): clone it to your local directory `/path/to/vPhon`
+ - [fancyimpute](https://github.com/iskandr/fancyimpute): install it from github repository
 
 In addition to [cjklib](https://pypi.org/project/cjklib/) [Unihan Database](http://unicode.org/charts/unihan.html) is used. The latest `Unihan.zip` can be downloaded from https://www.unicode.org/Public/UCD/. Unzip it to `/path/to/Unihan`.
 
