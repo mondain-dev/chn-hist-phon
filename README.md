@@ -10,10 +10,7 @@ We use python for to prepare our data. The following packages are required:
  - [vPhon: a Vietnamese phonetizer](https://github.com/kirbyj/vPhon): clone it to your local directory `/path/to/vPhon`
  - [fancyimpute](https://github.com/iskandr/fancyimpute): install it from github repository
 
-In addition to [cjklib](https://pypi.org/project/cjklib/) [Unihan Database](http://unicode.org/charts/unihan.html) is used. The latest `Unihan.zip` can be downloaded from https://www.unicode.org/Public/UCD/. Unzip it to `/path/to/Unihan`.
-
-The experiments are carried out in [R](https://www.r-project.org/), using 
- - [softImpute](https://cran.r-project.org/web/packages/softImpute/index.html): computing low-rank SVD on sparse data matrix with missing value imputation.
+In addition to [cjklib](https://pypi.org/project/cjklib/), [Unihan Database](http://unicode.org/charts/unihan.html) is used. The latest `Unihan.zip` can be downloaded from https://www.unicode.org/Public/UCD/. Unzip it to `/path/to/Unihan`.
  
 ## Running experiments
 ### Prepare data 
