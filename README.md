@@ -20,7 +20,7 @@ python /path/to/ChnHistPhon/ChnHistPhon_1_data_preparation.py
 ```
 which will create `ChnCharData.csv` a dataset of Chinese characters we need in `/path/to/ChnHistPhon/results`.
 ### Perform low-rank SVD
-We used `softImpute` ([Mazumder et al., 2010.](http://www.jmlr.org/papers/v11/mazumder10a.html) to complete the data matrix in `ChnCharData.csv`, which is followed by dictionary learning and sparse coding in `ChnHistPhon_2_run_SoftImpute_DictionaryLearning.py`.
+We used `softImpute` ([Mazumder et al., 2010.](http://www.jmlr.org/papers/v11/mazumder10a.html)) to complete the data matrix in `ChnCharData.csv`, which is followed by dictionary learning and sparse coding in `ChnHistPhon_2_run_SoftImpute_DictionaryLearning.py`.
  
 ## Results
 The results can be viewed [here](https://chinese-historical-phonology.herokuapp.com/).
