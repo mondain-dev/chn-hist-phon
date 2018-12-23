@@ -29,7 +29,7 @@ Unihan_Variants = pd.read_csv(Unihan_Variants_txt, sep='\t' , lineterminator='\n
 Unihan_Variants_kTraditionalVariant = Unihan_Variants.query('field == "kTraditionalVariant"').sort_values(by=['code'])
 
 def queryPinyin(code_point_str):
-  unicode_char = unichr(int(code_point_str.replace("U+", ""),16))
+  unicode_char = ("\\U%08x" % (int(code_point_str.replace("U+", ""),16))).decode('unicode-escape')
   pinyin = dict([])
   ## query cjklib
   cjk = characterlookup.CharacterLookup('C')
@@ -37,7 +37,7 @@ def queryPinyin(code_point_str):
   try:
     pinyin_cjklib = cjk.getReadingForCharacter(unicode_char, 'Pinyin')
   except:
-    print "cjklib error: getting Pinyin for: " + unicode_char
+    print("cjklib error: getting Pinyin for: " + unicode_char)
     pass
   pyOp = operator.PinyinOperator()
   if pinyin_cjklib:
@@ -69,7 +69,7 @@ def queryPinyin(code_point_str):
       try:
         py_onset_rhyme = [list(pyOp.getOnsetRhyme(x)) for x in py_syllable]
       except:
-        print "Unihan Readings error: getting Pinyin for: " + unicode_char + " " + ' '.join(pinyin_unihan)
+        print("Unihan Readings error: getting Pinyin for: " + unicode_char + " " + ' '.join(pinyin_unihan))
         pass
       if py_onset_rhyme:
         py_onset       = [x[0] for x in py_onset_rhyme]
@@ -94,7 +94,7 @@ def parseJapaneseOn(ja_on_str):
   return (ja_on_ons, ja_on_nuc, ja_on_cod)
 
 def queryJapaneseOnUnihanReadings(code_point_str):
-  unicode_char = unichr(int(code_point_str.replace("U+", ""),16))
+  unicode_char = ("\\U%08x" % (int(code_point_str.replace("U+", ""),16))).decode('unicode-escape')
   ja_on = dict([])
   ## query Unihan Readings data
   il = Unihan_Readings_kJapaneseOn['code'].searchsorted(code_point_str, 'left')[0]
@@ -116,7 +116,7 @@ def parseKoreanUnihan(kr_str):
   return (kr_ons, kr_nuc, kr_cod)
 
 def queryKoreanUnihanReadings(code_point_str):
-  unicode_char = unichr(int(code_point_str.replace("U+", ""),16))
+  unicode_char = ("\\U%08x" % (int(code_point_str.replace("U+", ""),16))).decode('unicode-escape')
   kr = dict([])
   ## query Unihan Readings data
   il = Unihan_Readings_kKorean['code'].searchsorted(code_point_str, 'left')[0]
@@ -131,7 +131,7 @@ def queryKoreanUnihanReadings(code_point_str):
   return kr
 
 def queryVietnameseUnihanReadings(code_point_str):
-  unicode_char = unichr(int(code_point_str.replace("U+", ""),16))
+  unicode_char = ("\\U%08x" % (int(code_point_str.replace("U+", ""),16))).decode('unicode-escape')
   vi = dict([])
   ## query Unihan Readings data
   il = Unihan_Readings_kVietnamese['code'].searchsorted(code_point_str, 'left')[0]
@@ -166,7 +166,7 @@ def parseJyutping(jyutping_str):
   return (jyutping_ons, jyutping_nuc, jyutping_cod, jyutping_ton)
 
 def queryCantoneseUnihanReadings(code_point_str):
-  unicode_char = unichr(int(code_point_str.replace("U+", ""),16))
+  unicode_char = ("\\U%08x" % (int(code_point_str.replace("U+", ""),16))).decode('unicode-escape')
   yyef_jyutping = dict([])
   ## query Unihan Readings data
   il = Unihan_Readings_kCantonese['code'].searchsorted(code_point_str, 'left')[0]
@@ -182,7 +182,7 @@ def queryCantoneseUnihanReadings(code_point_str):
   return yyef_jyutping
 
 def queryShanghaineseCJKLIB(code_point_str):
-  unicode_char = unichr(int(code_point_str.replace("U+", ""),16))
+  unicode_char = ("\\U%08x" % (int(code_point_str.replace("U+", ""),16))).decode('unicode-escape')
   sh_IPA = dict([])
   ## query cjklib
   cjk = characterlookup.CharacterLookup('C')
@@ -362,5 +362,5 @@ with open(os.path.join(DIR_RESULTS, 'ChnChar.csv'), 'w') as f:
     csv_writer = csv.writer(f, delimiter=',')
     csv_writer.writerow(["Unicode", "character"])
     for c in t_char_list:
-        unicode_char = unichr(int(c.replace("U+", ""),16))
+        unicode_char = ("\\U%08x" % (int(c.replace("U+", ""),16))).decode('unicode-escape')
         csv_writer.writerow([c, unicode_char.encode('utf-8')])
